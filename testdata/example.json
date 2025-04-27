@@ -1,0 +1,875 @@
+{
+  "type": "source_file",
+  "startByte": 0,
+  "endByte": 482,
+  "startPoint": [0, 0],
+  "endPoint": [29, 0],
+  "children": [
+    {
+      "type": "package_declaration",
+      "startByte": 0,
+      "endByte": 12,
+      "startPoint": [0, 0],
+      "endPoint": [0, 12],
+      "children": [
+        {
+          "type": "package",
+          "startByte": 0,
+          "endByte": 7,
+          "startPoint": [0, 0],
+          "endPoint": [0, 7],
+          "text": "package"
+        },
+        {
+          "type": "identifier",
+          "startByte": 8,
+          "endByte": 12,
+          "startPoint": [0, 8],
+          "endPoint": [0, 12],
+          "text": "main"
+        }
+      ]
+    },
+    {
+      "type": "import_declaration",
+      "startByte": 14,
+      "endByte": 46,
+      "startPoint": [2, 0],
+      "endPoint": [5, 1],
+      "children": [
+        {
+          "type": "import",
+          "startByte": 14,
+          "endByte": 20,
+          "startPoint": [2, 0],
+          "endPoint": [2, 6],
+          "text": "import"
+        },
+        {
+          "type": "import_spec_list",
+          "startByte": 21,
+          "endByte": 46,
+          "startPoint": [2, 7],
+          "endPoint": [5, 1],
+          "children": [
+            {
+              "type": "import_spec",
+              "startByte": 27,
+              "endByte": 32,
+              "startPoint": [3, 4],
+              "endPoint": [3, 9],
+              "children": [
+                {
+                  "type": "interpreted_string_literal",
+                  "startByte": 27,
+                  "endByte": 32,
+                  "startPoint": [3, 4],
+                  "endPoint": [3, 9],
+                  "text": "\"fmt\""
+                }
+              ]
+            },
+            {
+              "type": "import_spec",
+              "startByte": 37,
+              "endByte": 46,
+              "startPoint": [4, 4],
+              "endPoint": [4, 13],
+              "children": [
+                {
+                  "type": "interpreted_string_literal",
+                  "startByte": 37,
+                  "endByte": 46,
+                  "startPoint": [4, 4],
+                  "endPoint": [4, 13],
+                  "text": "\"strings\""
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "comment",
+      "startByte": 48,
+      "endByte": 89,
+      "startPoint": [7, 0],
+      "endPoint": [7, 41],
+      "text": "// Add two numbers and return the result"
+    },
+    {
+      "type": "function_declaration",
+      "startByte": 90,
+      "endByte": 127,
+      "startPoint": [8, 0],
+      "endPoint": [10, 1],
+      "children": [
+        {
+          "type": "func",
+          "startByte": 90,
+          "endByte": 94,
+          "startPoint": [8, 0],
+          "endPoint": [8, 4],
+          "text": "func"
+        },
+        {
+          "type": "identifier",
+          "startByte": 95,
+          "endByte": 98,
+          "startPoint": [8, 5],
+          "endPoint": [8, 8],
+          "text": "add"
+        },
+        {
+          "type": "parameter_list",
+          "startByte": 98,
+          "endByte": 107,
+          "startPoint": [8, 8],
+          "endPoint": [8, 17],
+          "children": [
+            {
+              "type": "parameter_declaration",
+              "startByte": 99,
+              "endByte": 106,
+              "startPoint": [8, 9],
+              "endPoint": [8, 16],
+              "children": [
+                {
+                  "type": "identifier",
+                  "startByte": 99,
+                  "endByte": 100,
+                  "startPoint": [8, 9],
+                  "endPoint": [8, 10],
+                  "text": "a"
+                },
+                {
+                  "type": "identifier",
+                  "startByte": 102,
+                  "endByte": 103,
+                  "startPoint": [8, 12],
+                  "endPoint": [8, 13],
+                  "text": "b"
+                },
+                {
+                  "type": "type_identifier",
+                  "startByte": 104,
+                  "endByte": 106,
+                  "startPoint": [8, 14],
+                  "endPoint": [8, 16],
+                  "text": "int"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "type_identifier",
+          "startByte": 108,
+          "endByte": 111,
+          "startPoint": [8, 18],
+          "endPoint": [8, 21],
+          "text": "int"
+        },
+        {
+          "type": "block",
+          "startByte": 112,
+          "endByte": 127,
+          "startPoint": [8, 22],
+          "endPoint": [10, 1],
+          "children": [
+            {
+              "type": "return_statement",
+              "startByte": 118,
+              "endByte": 129,
+              "startPoint": [9, 4],
+              "endPoint": [9, 15],
+              "children": [
+                {
+                  "type": "return",
+                  "startByte": 118,
+                  "endByte": 124,
+                  "startPoint": [9, 4],
+                  "endPoint": [9, 10],
+                  "text": "return"
+                },
+                {
+                  "type": "binary_expression",
+                  "startByte": 125,
+                  "endByte": 130,
+                  "startPoint": [9, 11],
+                  "endPoint": [9, 16],
+                  "children": [
+                    {
+                      "type": "identifier",
+                      "startByte": 125,
+                      "endByte": 126,
+                      "startPoint": [9, 11],
+                      "endPoint": [9, 12],
+                      "text": "a"
+                    },
+                    {
+                      "type": "+",
+                      "startByte": 127,
+                      "endByte": 128,
+                      "startPoint": [9, 13],
+                      "endPoint": [9, 14],
+                      "text": "+"
+                    },
+                    {
+                      "type": "identifier",
+                      "startByte": 129,
+                      "endByte": 130,
+                      "startPoint": [9, 15],
+                      "endPoint": [9, 16],
+                      "text": "b"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "function_declaration",
+      "startByte": 129,
+      "endByte": 482,
+      "startPoint": [12, 0],
+      "endPoint": [28, 1],
+      "children": [
+        {
+          "type": "func",
+          "startByte": 129,
+          "endByte": 133,
+          "startPoint": [12, 0],
+          "endPoint": [12, 4],
+          "text": "func"
+        },
+        {
+          "type": "identifier",
+          "startByte": 134,
+          "endByte": 138,
+          "startPoint": [12, 5],
+          "endPoint": [12, 9],
+          "text": "main"
+        },
+        {
+          "type": "parameter_list",
+          "startByte": 138,
+          "endByte": 140,
+          "startPoint": [12, 9],
+          "endPoint": [12, 11],
+          "children": []
+        },
+        {
+          "type": "block",
+          "startByte": 141,
+          "endByte": 482,
+          "startPoint": [12, 12],
+          "endPoint": [28, 1],
+          "children": [
+            {
+              "type": "comment",
+              "startByte": 147,
+              "endByte": 166,
+              "startPoint": [13, 4],
+              "endPoint": [13, 23],
+              "text": "// Print a greeting"
+            },
+            {
+              "type": "short_var_declaration",
+              "startByte": 171,
+              "endByte": 196,
+              "startPoint": [14, 4],
+              "endPoint": [14, 29],
+              "children": [
+                {
+                  "type": "identifier",
+                  "startByte": 171,
+                  "endByte": 178,
+                  "startPoint": [14, 4],
+                  "endPoint": [14, 11],
+                  "text": "message"
+                },
+                {
+                  "type": ":=",
+                  "startByte": 179,
+                  "endByte": 181,
+                  "startPoint": [14, 12],
+                  "endPoint": [14, 14],
+                  "text": ":="
+                },
+                {
+                  "type": "interpreted_string_literal",
+                  "startByte": 182,
+                  "endByte": 196,
+                  "startPoint": [14, 15],
+                  "endPoint": [14, 29],
+                  "text": "\"Hello, World!\""
+                }
+              ]
+            },
+            {
+              "type": "expression_statement",
+              "startByte": 201,
+              "endByte": 221,
+              "startPoint": [15, 4],
+              "endPoint": [15, 24],
+              "children": [
+                {
+                  "type": "call_expression",
+                  "startByte": 201,
+                  "endByte": 220,
+                  "startPoint": [15, 4],
+                  "endPoint": [15, 23],
+                  "children": [
+                    {
+                      "type": "selector_expression",
+                      "startByte": 201,
+                      "endByte": 212,
+                      "startPoint": [15, 4],
+                      "endPoint": [15, 15],
+                      "children": [
+                        {
+                          "type": "identifier",
+                          "startByte": 201,
+                          "endByte": 204,
+                          "startPoint": [15, 4],
+                          "endPoint": [15, 7],
+                          "text": "fmt"
+                        },
+                        {
+                          "type": ".",
+                          "startByte": 204,
+                          "endByte": 205,
+                          "startPoint": [15, 7],
+                          "endPoint": [15, 8],
+                          "text": "."
+                        },
+                        {
+                          "type": "identifier",
+                          "startByte": 205,
+                          "endByte": 212,
+                          "startPoint": [15, 8],
+                          "endPoint": [15, 15],
+                          "text": "Println"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "argument_list",
+                      "startByte": 212,
+                      "endByte": 220,
+                      "startPoint": [15, 15],
+                      "endPoint": [15, 23],
+                      "children": [
+                        {
+                          "type": "identifier",
+                          "startByte": 213,
+                          "endByte": 220,
+                          "startPoint": [15, 16],
+                          "endPoint": [15, 23],
+                          "text": "message"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "comment",
+              "startByte": 227,
+              "endByte": 251,
+              "startPoint": [17, 4],
+              "endPoint": [17, 28],
+              "text": "// Calculate and print sum"
+            },
+            {
+              "type": "short_var_declaration",
+              "startByte": 256,
+              "endByte": 272,
+              "startPoint": [18, 4],
+              "endPoint": [18, 20],
+              "children": [
+                {
+                  "type": "identifier",
+                  "startByte": 256,
+                  "endByte": 259,
+                  "startPoint": [18, 4],
+                  "endPoint": [18, 7],
+                  "text": "sum"
+                },
+                {
+                  "type": ":=",
+                  "startByte": 260,
+                  "endByte": 262,
+                  "startPoint": [18, 8],
+                  "endPoint": [18, 10],
+                  "text": ":="
+                },
+                {
+                  "type": "call_expression",
+                  "startByte": 263,
+                  "endByte": 272,
+                  "startPoint": [18, 11],
+                  "endPoint": [18, 20],
+                  "children": [
+                    {
+                      "type": "identifier",
+                      "startByte": 263,
+                      "endByte": 266,
+                      "startPoint": [18, 11],
+                      "endPoint": [18, 14],
+                      "text": "add"
+                    },
+                    {
+                      "type": "argument_list",
+                      "startByte": 266,
+                      "endByte": 272,
+                      "startPoint": [18, 14],
+                      "endPoint": [18, 20],
+                      "children": [
+                        {
+                          "type": "int_literal",
+                          "startByte": 267,
+                          "endByte": 268,
+                          "startPoint": [18, 15],
+                          "endPoint": [18, 16],
+                          "text": "5"
+                        },
+                        {
+                          "type": "int_literal",
+                          "startByte": 270,
+                          "endByte": 271,
+                          "startPoint": [18, 18],
+                          "endPoint": [18, 19],
+                          "text": "7"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "if_statement",
+              "startByte": 277,
+              "endByte": 348,
+              "startPoint": [19, 4],
+              "endPoint": [21, 5],
+              "children": [
+                {
+                  "type": "if",
+                  "startByte": 277,
+                  "endByte": 279,
+                  "startPoint": [19, 4],
+                  "endPoint": [19, 6],
+                  "text": "if"
+                },
+                {
+                  "type": "binary_expression",
+                  "startByte": 280,
+                  "endByte": 288,
+                  "startPoint": [19, 7],
+                  "endPoint": [19, 15],
+                  "children": [
+                    {
+                      "type": "identifier",
+                      "startByte": 280,
+                      "endByte": 283,
+                      "startPoint": [19, 7],
+                      "endPoint": [19, 10],
+                      "text": "sum"
+                    },
+                    {
+                      "type": ">",
+                      "startByte": 284,
+                      "endByte": 285,
+                      "startPoint": [19, 11],
+                      "endPoint": [19, 12],
+                      "text": ">"
+                    },
+                    {
+                      "type": "int_literal",
+                      "startByte": 286,
+                      "endByte": 288,
+                      "startPoint": [19, 13],
+                      "endPoint": [19, 15],
+                      "text": "10"
+                    }
+                  ]
+                },
+                {
+                  "type": "block",
+                  "startByte": 289,
+                  "endByte": 348,
+                  "startPoint": [19, 16],
+                  "endPoint": [21, 5],
+                  "children": [
+                    {
+                      "type": "expression_statement",
+                      "startByte": 295,
+                      "endByte": 342,
+                      "startPoint": [20, 8],
+                      "endPoint": [20, 55],
+                      "children": [
+                        {
+                          "type": "call_expression",
+                          "startByte": 295,
+                          "endByte": 341,
+                          "startPoint": [20, 8],
+                          "endPoint": [20, 54],
+                          "children": [
+                            {
+                              "type": "selector_expression",
+                              "startByte": 295,
+                              "endByte": 305,
+                              "startPoint": [20, 8],
+                              "endPoint": [20, 18],
+                              "children": [
+                                {
+                                  "type": "identifier",
+                                  "startByte": 295,
+                                  "endByte": 298,
+                                  "startPoint": [20, 8],
+                                  "endPoint": [20, 11],
+                                  "text": "fmt"
+                                },
+                                {
+                                  "type": ".",
+                                  "startByte": 298,
+                                  "endByte": 299,
+                                  "startPoint": [20, 11],
+                                  "endPoint": [20, 12],
+                                  "text": "."
+                                },
+                                {
+                                  "type": "identifier",
+                                  "startByte": 299,
+                                  "endByte": 305,
+                                  "startPoint": [20, 12],
+                                  "endPoint": [20, 18],
+                                  "text": "Printf"
+                                }
+                              ]
+                            },
+                            {
+                              "type": "argument_list",
+                              "startByte": 305,
+                              "endByte": 341,
+                              "startPoint": [20, 18],
+                              "endPoint": [20, 54],
+                              "children": [
+                                {
+                                  "type": "interpreted_string_literal",
+                                  "startByte": 306,
+                                  "endByte": 337,
+                                  "startPoint": [20, 19],
+                                  "endPoint": [20, 50],
+                                  "text": "\"Sum is %d, which is greater than 10\\n\""
+                                },
+                                {
+                                  "type": "identifier",
+                                  "startByte": 338,
+                                  "endByte": 341,
+                                  "startPoint": [20, 51],
+                                  "endPoint": [20, 54],
+                                  "text": "sum"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "comment",
+              "startByte": 353,
+              "endByte": 379,
+              "startPoint": [23, 4],
+              "endPoint": [23, 30],
+              "text": "// Do some string processing"
+            },
+            {
+              "type": "for_statement",
+              "startByte": 384,
+              "endByte": 476,
+              "startPoint": [24, 4],
+              "endPoint": [26, 5],
+              "children": [
+                {
+                  "type": "for",
+                  "startByte": 384,
+                  "endByte": 387,
+                  "startPoint": [24, 4],
+                  "endPoint": [24, 7],
+                  "text": "for"
+                },
+                {
+                  "type": "for_clause",
+                  "startByte": 388,
+                  "endByte": 406,
+                  "startPoint": [24, 8],
+                  "endPoint": [24, 26],
+                  "children": [
+                    {
+                      "type": "short_var_declaration",
+                      "startByte": 388,
+                      "endByte": 394,
+                      "startPoint": [24, 8],
+                      "endPoint": [24, 14],
+                      "children": [
+                        {
+                          "type": "identifier",
+                          "startByte": 388,
+                          "endByte": 389,
+                          "startPoint": [24, 8],
+                          "endPoint": [24, 9],
+                          "text": "i"
+                        },
+                        {
+                          "type": ":=",
+                          "startByte": 390,
+                          "endByte": 392,
+                          "startPoint": [24, 10],
+                          "endPoint": [24, 12],
+                          "text": ":="
+                        },
+                        {
+                          "type": "int_literal",
+                          "startByte": 393,
+                          "endByte": 394,
+                          "startPoint": [24, 13],
+                          "endPoint": [24, 14],
+                          "text": "0"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "binary_expression",
+                      "startByte": 396,
+                      "endByte": 401,
+                      "startPoint": [24, 16],
+                      "endPoint": [24, 21],
+                      "children": [
+                        {
+                          "type": "identifier",
+                          "startByte": 396,
+                          "endByte": 397,
+                          "startPoint": [24, 16],
+                          "endPoint": [24, 17],
+                          "text": "i"
+                        },
+                        {
+                          "type": "<",
+                          "startByte": 398,
+                          "endByte": 399,
+                          "startPoint": [24, 18],
+                          "endPoint": [24, 19],
+                          "text": "<"
+                        },
+                        {
+                          "type": "int_literal",
+                          "startByte": 400,
+                          "endByte": 401,
+                          "startPoint": [24, 20],
+                          "endPoint": [24, 21],
+                          "text": "3"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "inc_statement",
+                      "startByte": 403,
+                      "endByte": 406,
+                      "startPoint": [24, 23],
+                      "endPoint": [24, 26],
+                      "children": [
+                        {
+                          "type": "identifier",
+                          "startByte": 403,
+                          "endByte": 404,
+                          "startPoint": [24, 23],
+                          "endPoint": [24, 24],
+                          "text": "i"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "block",
+                  "startByte": 407,
+                  "endByte": 476,
+                  "startPoint": [24, 27],
+                  "endPoint": [26, 5],
+                  "children": [
+                    {
+                      "type": "expression_statement",
+                      "startByte": 413,
+                      "endByte": 448,
+                      "startPoint": [25, 8],
+                      "endPoint": [25, 43],
+                      "children": [
+                        {
+                          "type": "call_expression",
+                          "startByte": 413,
+                          "endByte": 447,
+                          "startPoint": [25, 8],
+                          "endPoint": [25, 42],
+                          "children": [
+                            {
+                              "type": "selector_expression",
+                              "startByte": 413,
+                              "endByte": 424,
+                              "startPoint": [25, 8],
+                              "endPoint": [25, 19],
+                              "children": [
+                                {
+                                  "type": "identifier",
+                                  "startByte": 413,
+                                  "endByte": 416,
+                                  "startPoint": [25, 8],
+                                  "endPoint": [25, 11],
+                                  "text": "fmt"
+                                },
+                                {
+                                  "type": ".",
+                                  "startByte": 416,
+                                  "endByte": 417,
+                                  "startPoint": [25, 11],
+                                  "endPoint": [25, 12],
+                                  "text": "."
+                                },
+                                {
+                                  "type": "identifier",
+                                  "startByte": 417,
+                                  "endByte": 424,
+                                  "startPoint": [25, 12],
+                                  "endPoint": [25, 19],
+                                  "text": "Println"
+                                }
+                              ]
+                            },
+                            {
+                              "type": "argument_list",
+                              "startByte": 424,
+                              "endByte": 447,
+                              "startPoint": [25, 19],
+                              "endPoint": [25, 42],
+                              "children": [
+                                {
+                                  "type": "call_expression",
+                                  "startByte": 425,
+                                  "endByte": 446,
+                                  "startPoint": [25, 20],
+                                  "endPoint": [25, 41],
+                                  "children": [
+                                    {
+                                      "type": "selector_expression",
+                                      "startByte": 425,
+                                      "endByte": 439,
+                                      "startPoint": [25, 20],
+                                      "endPoint": [25, 34],
+                                      "children": [
+                                        {
+                                          "type": "identifier",
+                                          "startByte": 425,
+                                          "endByte": 432,
+                                          "startPoint": [25, 20],
+                                          "endPoint": [25, 27],
+                                          "text": "strings"
+                                        },
+                                        {
+                                          "type": ".",
+                                          "startByte": 432,
+                                          "endByte": 433,
+                                          "startPoint": [25, 27],
+                                          "endPoint": [25, 28],
+                                          "text": "."
+                                        },
+                                        {
+                                          "type": "identifier",
+                                          "startByte": 433,
+                                          "endByte": 439,
+                                          "startPoint": [25, 28],
+                                          "endPoint": [25, 34],
+                                          "text": "Repeat"
+                                        }
+                                      ]
+                                    },
+                                    {
+                                      "type": "argument_list",
+                                      "startByte": 439,
+                                      "endByte": 446,
+                                      "startPoint": [25, 34],
+                                      "endPoint": [25, 41],
+                                      "children": [
+                                        {
+                                          "type": "interpreted_string_literal",
+                                          "startByte": 440,
+                                          "endByte": 443,
+                                          "startPoint": [25, 35],
+                                          "endPoint": [25, 38],
+                                          "text": "\"*\""
+                                        },
+                                        {
+                                          "type": "binary_expression",
+                                          "startByte": 444,
+                                          "endByte": 445,
+                                          "startPoint": [25, 39],
+                                          "endPoint": [25, 40],
+                                          "children": [
+                                            {
+                                              "type": "identifier",
+                                              "startByte": 444,
+                                              "endByte": 445,
+                                              "startPoint": [25, 39],
+                                              "endPoint": [25, 40],
+                                              "text": "i"
+                                            },
+                                            {
+                                              "type": "+",
+                                              "startByte": 445,
+                                              "endByte": 446,
+                                              "startPoint": [25, 40],
+                                              "endPoint": [25, 41],
+                                              "text": "+"
+                                            },
+                                            {
+                                              "type": "int_literal",
+                                              "startByte": 446,
+                                              "endByte": 447,
+                                              "startPoint": [25, 41],
+                                              "endPoint": [25, 42],
+                                              "text": "1"
+                                            }
+                                          ]
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

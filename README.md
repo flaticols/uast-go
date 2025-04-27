@@ -24,7 +24,7 @@ package main
 
 import (
     "fmt"
-    "github.com/flaticols/uast-go
+    "github.com/flaticols/uast-go"
 )
 
 func main() {
@@ -123,7 +123,7 @@ converter.AddMappingRule("trait_definition", uast.Class)
 
 ```go
 // Find all function nodes
-functions := uast.FindByType(uast.Function)
+functions := u.FindByType(uast.Function)
 for _, fn := range functions {
     fmt.Printf("Function: %s\n", fn.Token)
 }
@@ -143,8 +143,8 @@ u.AddMetadata("version", "1.0")
 processor := uast.NewLLMProcessor()
 processor.MaxTokensPerNode = 50
 processor.IncludeLocations = true
-processor.PrioritizeTypes = []uast.NodeType{uast.Function, uast.Class}
-processor.ExcludeTypes = []uast.NodeType{uast.Comment, uast.Unknown}
+processor.SetPrioritizeTypes([]uast.NodeType{uast.Function, uast.Class})
+processor.SetExcludeTypes([]uast.NodeType{uast.Comment, uast.Unknown})
 ```
 
 ## Contributing

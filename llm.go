@@ -16,6 +16,16 @@ type LLMProcessor struct {
 	format              LLMFormat
 }
 
+// SetPrioritizeTypes sets the node types to prioritize during processing
+func (p *LLMProcessor) SetPrioritizeTypes(types []NodeType) {
+	p.PrioritizeTypes = types
+}
+
+// SetExcludeTypes sets the node types to exclude during processing
+func (p *LLMProcessor) SetExcludeTypes(types []NodeType) {
+	p.ExcludeTypes = types
+}
+
 // NewLLMProcessor creates a new LLMProcessor with default settings
 func NewLLMProcessor() *LLMProcessor {
 	return &LLMProcessor{

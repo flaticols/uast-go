@@ -46,7 +46,16 @@ func Example() {
 
 	fmt.Println(llmText)
 	// Output: Language: go
-	// ...
+	//
+	// Structure:
+	// File
+	//   Function: hello [Declaration, Definition]
+	//     Unknown
+	//       Unknown: name
+	//     Unknown [Body]
+	//       Return: return
+	//   Class: Example [Declaration, Definition]
+	//     Unknown: test
 }
 
 func Example_customMappingRules() {
@@ -58,7 +67,35 @@ func Example_customMappingRules() {
 	converter.AddMappingRule("trait_definition", uast.Class)
 	converter.AddMappingRule("fn_declaration", uast.Function)
 
-	// Rest of the code...
+	// Load sample CST
+	tsNode, err := createSimpleCST()
+	if err != nil {
+		fmt.Printf("Error creating CST: %v\n", err)
+		return
+	}
+
+	// Convert to UAST with custom rules
+	u, err := converter.Convert(tsNode, "rust")
+	if err != nil {
+		fmt.Printf("Error converting to UAST: %v\n", err)
+		return
+	}
+
+	// Process and output
+	processor := uast.NewLLMProcessor()
+	llmText, err := processor.Process(u)
+	if err != nil {
+		fmt.Printf("Error processing for LLM: %v\n", err)
+		return
+	}
+
+	fmt.Println(llmText)
+	// Output: Language: rust
+	// 
+	// Structure:
+	// File
+	//   Function: add [Declaration, Definition]
+	//   Class: MyStruct [Declaration, Definition]
 }
 
 func Example_parallelProcessing() {
@@ -70,7 +107,41 @@ func Example_parallelProcessing() {
 	// - Use at most 4 goroutines
 	converter.SetParallelizationParams(20, 4)
 
-	// Rest of the code...
+	// Load sample CST
+	cstFile := createTestCST()
+	tsNode, err := uast.LoadTreeSitterCST(cstFile)
+	if err != nil {
+		fmt.Printf("Error loading CST: %v\n", err)
+		return
+	}
+
+	// Convert to UAST with parallel processing
+	u, err := converter.Convert(tsNode, "go")
+	if err != nil {
+		fmt.Printf("Error converting to UAST: %v\n", err)
+		return
+	}
+
+	// Process and output
+	processor := uast.NewLLMProcessor()
+	llmText, err := processor.Process(u)
+	if err != nil {
+		fmt.Printf("Error processing for LLM: %v\n", err)
+		return
+	}
+
+	fmt.Println(llmText)
+	// Output: Language: go
+	//
+	// Structure:
+	// File
+	//   Function: hello [Declaration, Definition]
+	//     Unknown
+	//       Unknown: name
+	//     Unknown [Body]
+	//       Return: return
+	//   Class: Example [Declaration, Definition]
+	//     Unknown: test
 }
 
 func Example_customLLMFormatting() {
@@ -112,6 +183,35 @@ func Example_customLLMFormatting() {
 	treeText, _ := uast.ToLLMFormat(u, treeFormat)
 	fmt.Println("\nTree Text Format:")
 	fmt.Println(treeText)
+}
+
+// createSimpleCST creates a simple CST node for testing
+func createSimpleCST() (*uast.TreeSitterNode, error) {
+	return &uast.TreeSitterNode{
+		Type:       "program",
+		StartByte:  0,
+		EndByte:    100,
+		StartPoint: [2]int{0, 0},
+		EndPoint:   [2]int{10, 0},
+		Children: []*uast.TreeSitterNode{
+			{
+				Type:       "fn_declaration",
+				StartByte:  0,
+				EndByte:    50,
+				StartPoint: [2]int{0, 0},
+				EndPoint:   [2]int{5, 0},
+				Text:       "add",
+			},
+			{
+				Type:       "impl_block",
+				StartByte:  51,
+				EndByte:    90,
+				StartPoint: [2]int{6, 0},
+				EndPoint:   [2]int{9, 0},
+				Text:       "MyStruct",
+			},
+		},
+	}, nil
 }
 
 // This is a helper function to create a test CST file if it doesn't exist

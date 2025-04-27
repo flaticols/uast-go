@@ -155,13 +155,15 @@ func (c *Converter) convertChildrenSequential(children []*TreeSitterNode) []*Nod
 
 // convertChildrenParallel converts children in parallel
 func (c *Converter) convertChildrenParallel(children []*TreeSitterNode) []*Node {
-	result := make([]*Node, len(children))
+	// Create a mutex-protected result slice to avoid race conditions
+	var resultMutex sync.Mutex
+	result := make([]*Node, 0, len(children))
 	var wg sync.WaitGroup
 
 	// Use a semaphore to limit the number of goroutines
 	sem := make(chan struct{}, c.maxGoRoutines)
 
-	for i, child := range children {
+	for _, child := range children {
 		if child == nil {
 			continue
 		}
@@ -169,28 +171,22 @@ func (c *Converter) convertChildrenParallel(children []*TreeSitterNode) []*Node 
 		wg.Add(1)
 		sem <- struct{}{} // Acquire semaphore
 
-		go func(i int, child *TreeSitterNode) {
+		go func(child *TreeSitterNode) {
 			defer wg.Done()
 			defer func() { <-sem }() // Release semaphore
 
 			childNode := c.convertNode(child)
 			if childNode != nil {
-				result[i] = childNode
+				// Safely append to the result slice
+				resultMutex.Lock()
+				result = append(result, childNode)
+				resultMutex.Unlock()
 			}
-		}(i, child)
+		}(child)
 	}
 
 	wg.Wait()
-
-	// Filter out nil entries (from nil children)
-	filteredResult := make([]*Node, 0, len(result))
-	for _, node := range result {
-		if node != nil {
-			filteredResult = append(filteredResult, node)
-		}
-	}
-
-	return filteredResult
+	return result
 }
 
 // mapNodeType maps a Tree-sitter node type to a UAST node type

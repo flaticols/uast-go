@@ -16,17 +16,41 @@ type LLMProcessor struct {
 	format              LLMFormat
 }
 
-// SetPrioritizeTypes sets the node types to prioritize during processing
+// SetPrioritizeTypes sets the node types to prioritize during processing.
+//
+// Prioritized node types will be processed first and displayed prominently
+// in the output, making them easier for LLMs to identify and understand.
+//
+// Parameters:
+//   - types: A slice of NodeType values to prioritize (e.g., []NodeType{Function, Class})
 func (p *LLMProcessor) SetPrioritizeTypes(types []NodeType) {
 	p.PrioritizeTypes = types
 }
 
-// SetExcludeTypes sets the node types to exclude during processing
+// SetExcludeTypes sets the node types to exclude during processing.
+//
+// Excluded node types will be completely omitted from the LLM output,
+// reducing noise and focusing on relevant code structures.
+//
+// Parameters:
+//   - types: A slice of NodeType values to exclude (e.g., []NodeType{Unknown, Comment})
 func (p *LLMProcessor) SetExcludeTypes(types []NodeType) {
 	p.ExcludeTypes = types
 }
 
-// NewLLMProcessor creates a new LLMProcessor with default settings
+// NewLLMProcessor creates a new LLMProcessor with default settings.
+//
+// Default settings include:
+//   - MaxTokensPerNode: 100
+//   - MaxTotalTokens: 2000
+//   - IncludeLocations: false
+//   - SimplifyNestedNodes: true
+//   - PrioritizeTypes: [Function, Class, Method]
+//   - ExcludeTypes: [Unknown]
+//   - Format: SimpleTextFormat
+//
+// Returns:
+//   - *LLMProcessor: A new LLM processor with default configuration
 func NewLLMProcessor() *LLMProcessor {
 	return &LLMProcessor{
 		MaxTokensPerNode:    100,
@@ -39,12 +63,29 @@ func NewLLMProcessor() *LLMProcessor {
 	}
 }
 
-// SetFormat sets the format for the LLMProcessor
+// SetFormat sets the format for the LLMProcessor.
+//
+// The format determines how the UAST is serialized for LLM consumption.
+// Available formats include JSONFormat, SimpleTextFormat, and TreeFormat.
+//
+// Parameters:
+//   - format: An implementation of the LLMFormat interface
 func (p *LLMProcessor) SetFormat(format LLMFormat) {
 	p.format = format
 }
 
-// Process processes the UAST for LLM consumption
+// Process processes the UAST for LLM consumption.
+//
+// This method applies the processor's configuration (prioritization, exclusion,
+// token limits, etc.) and formats the UAST according to the set format.
+// If no format is set, it uses a default text-based approach.
+//
+// Parameters:
+//   - uast: The UAST to process
+//
+// Returns:
+//   - string: The formatted UAST optimized for LLM consumption
+//   - error: An error if the UAST or root node is nil, or formatting fails
 func (p *LLMProcessor) Process(uast *UAST) (string, error) {
 	if uast == nil || uast.Root == nil {
 		return "", fmt.Errorf("UAST or root node cannot be nil")

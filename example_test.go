@@ -91,7 +91,7 @@ func Example_customMappingRules() {
 
 	fmt.Println(llmText)
 	// Output: Language: rust
-	// 
+	//
 	// Structure:
 	// File
 	//   Function: add [Declaration, Definition]

@@ -1,4 +1,14 @@
-// Package uast provides functionality to convert Tree-sitter CST to UAST
+// Package uast provides functionality to convert various AST formats (Tree-sitter CST,
+// Go AST, etc.) to Universal Abstract Syntax Trees (UAST) optimized for Large Language Models.
+//
+// UAST provides a language-agnostic representation of source code that helps LLMs better
+// understand and process code structure. It supports:
+//   - Tree-sitter Concrete Syntax Trees (CST)
+//   - Go native AST (from go/ast package)
+//   - Extensible adapter pattern for additional AST sources
+//
+// The package includes utilities for parsing, converting, indexing, and formatting
+// ASTs for LLM consumption.
 package uast
 
 import (
@@ -88,7 +98,18 @@ type UAST struct {
 	mu         sync.RWMutex         `json:"-"`
 }
 
-// NewUAST creates a new UAST with the given root node and language
+// NewUAST creates a new UAST with the given root node and language.
+//
+// This function initializes a UAST structure and automatically builds
+// indices for fast lookups by node type and token. The indices enable
+// efficient querying of the AST structure.
+//
+// Parameters:
+//   - root: The root node of the UAST tree
+//   - language: The programming language of the source code (e.g., "go", "python", "javascript")
+//
+// Returns:
+//   - *UAST: A new UAST instance with built indices
 func NewUAST(root *Node, language string) *UAST {
 	uast := &UAST{
 		Root:       root,
@@ -138,7 +159,16 @@ func (u *UAST) ToJSON() (string, error) {
 	return string(bytes), nil
 }
 
-// FindByType returns all nodes of the given type
+// FindByType returns all nodes of the given type.
+//
+// This method performs an efficient lookup using the pre-built type index.
+// It returns a copy of the node slice to prevent external modifications.
+//
+// Parameters:
+//   - nodeType: The NodeType to search for (e.g., Function, Class, Identifier)
+//
+// Returns:
+//   - []*Node: A slice of all nodes matching the type, or empty slice if none found
 func (u *UAST) FindByType(nodeType NodeType) []*Node {
 	u.mu.RLock()
 	defer u.mu.RUnlock()
@@ -149,7 +179,16 @@ func (u *UAST) FindByType(nodeType NodeType) []*Node {
 	return []*Node{}
 }
 
-// FindByToken returns all nodes with the given token
+// FindByToken returns all nodes with the given token.
+//
+// This method performs an efficient lookup using the pre-built token index.
+// It returns a copy of the node slice to prevent external modifications.
+//
+// Parameters:
+//   - token: The token string to search for (e.g., a variable name, keyword, or identifier)
+//
+// Returns:
+//   - []*Node: A slice of all nodes with matching tokens, or empty slice if none found
 func (u *UAST) FindByToken(token string) []*Node {
 	u.mu.RLock()
 	defer u.mu.RUnlock()
@@ -160,7 +199,14 @@ func (u *UAST) FindByToken(token string) []*Node {
 	return []*Node{}
 }
 
-// AddMetadata adds metadata to the UAST
+// AddMetadata adds metadata to the UAST.
+//
+// Metadata can be used to store additional information about the source code
+// or conversion process, such as file paths, timestamps, or custom annotations.
+//
+// Parameters:
+//   - key: The metadata key
+//   - value: The metadata value
 func (u *UAST) AddMetadata(key, value string) {
 	u.mu.Lock()
 	defer u.mu.Unlock()
